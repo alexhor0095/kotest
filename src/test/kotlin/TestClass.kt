@@ -2,7 +2,7 @@ import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.shouldBe
 
 
-class MyFirstTestClass : FunSpec({
+class TestClass : FunSpec({
     //extension(RepeatOnFailureExtension())
     test("fail test") {
         1 + 2 shouldBe 23
