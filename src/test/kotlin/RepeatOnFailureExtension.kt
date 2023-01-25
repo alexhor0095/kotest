@@ -11,11 +11,11 @@ class RepeatOnFailureExtension : TestCaseExtension {
         execute: suspend (TestCase) -> TestResult
     ): TestResult {
         var testResult = execute(testCase)
-        while (repeatCounter > 0) {
-            if (testResult.isErrorOrFailure) {
+        if (testResult.isErrorOrFailure) {
+            while (repeatCounter > 0) {
                 testResult = execute(testCase)
+                repeatCounter--
             }
-            repeatCounter--
         }
         print(testResult)
         return testResult
